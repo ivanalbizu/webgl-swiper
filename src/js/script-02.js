@@ -38,10 +38,6 @@ class WebglSlides {
     this.planeElement = set.planeElement;
     this.multiTexturesPlane = null;
     this.slidesState = {
-      activeTextureIndex: 1,
-      nextTextureIndex: null,
-      maxTextures: this.canvas.querySelectorAll('img').length, // -1 to displacement
-
       isChanging: false,
       transitionTimer: 0,
     };
@@ -91,14 +87,12 @@ class WebglSlides {
         const activeTexture = this.multiTexturesPlane.createTexture({
           sampler: 'activeTexture',
           fromTexture:
-            this.multiTexturesPlane.textures[
-              this.slidesState.activeTextureIndex
-            ],
+            this.multiTexturesPlane.textures[this.swiper.realIndex + 1],
         });
         const nextTexture = this.multiTexturesPlane.createTexture({
           sampler: 'nextTexture',
           fromTexture:
-            this.multiTexturesPlane.textures[this.slidesState.nextTextureIndex],
+            this.multiTexturesPlane.textures[this.swiper.realIndex + 2],
         });
 
         this.initEvent(activeTexture, nextTexture);
