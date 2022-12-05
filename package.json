@@ -2,7 +2,7 @@
   "name": "swiper-webgl",
   "version": "1.0.0",
   "description": "",
-  "source": "index-02.html",
+  "source": "index.html",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
